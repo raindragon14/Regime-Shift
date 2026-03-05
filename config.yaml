@@ -1,0 +1,79 @@
+# ============================================================
+# Quant Project v2.0 - Regime Shift Analysis Configuration
+# ============================================================
+# Ubah parameter di sini tanpa menyentuh kode Python.
+
+# --- Data Source ---
+data:
+  tickers:
+    - "BTC-USD"
+    - "GLD"
+    - "^VIX"
+    - "QQQ"       # Nasdaq 100 ETF (risk-on proxy)
+    - "SPY"       # S&P 500 ETF (market benchmark)
+  start_date: "2020-01-01"
+  end_date: null  # null = sampai hari ini
+
+# --- H1: VIX-Panic Correlation ---
+analysis:
+  rolling_window: 30          # Window untuk rolling correlation (hari)
+  vix_panic_threshold: 30     # VIX di atas nilai ini = "Panic Mode"
+  correlation_threshold: 0.5  # Batas korelasi untuk H1
+
+# --- H2: Regime Shift (Multi-Asset Rolling Correlation) ---
+regime_analysis:
+  rolling_window: 30
+  pairs:
+    risk_on:
+      asset: "BTC-USD"
+      benchmark: "QQQ"
+    safe_haven:
+      asset: "BTC-USD"
+      benchmark: "GLD"
+
+# --- H3: Event Study (Abnormal Return) ---
+event_study:
+  market_benchmark: "SPY"
+  target_asset: "BTC-USD"
+  estimation_window: 120   # Hari sebelum event untuk estimasi alpha/beta
+  event_window_before: 5   # Hari sebelum event date
+  event_window_after: 5    # Hari setelah event date
+  events:
+    - name: "Israel-Hamas Escalation"
+      date: "2023-10-07"
+    - name: "Iran-Israel Strikes Apr 2024"
+      date: "2024-04-13"
+    - name: "Strait of Hormuz Partial Closure"
+      date: "2025-02-15"
+    - name: "Khamenei Death & Hormuz Full Closure"
+      date: "2026-02-28"
+
+# --- Beta Stress Test ---
+beta_stress:
+  market_benchmark: "SPY"
+  target_asset: "BTC-USD"
+  vix_regimes:
+    low: [0, 15]
+    normal: [15, 25]
+    elevated: [25, 30]
+    panic: [30, 100]
+
+# --- Output ---
+output:
+  directory: "output"
+  charts:
+    # H1 charts (existing)
+    rolling_correlation: "h1_rolling_correlation.png"
+    vix_overlay: "h1_vix_regime_overlay.png"
+    scatter_regime: "h1_scatter_panic_vs_normal.png"
+    # H2 charts (new)
+    dual_rolling_corr: "h2_regime_shift_dual_corr.png"
+    # H3 charts (new)
+    event_study: "h3_event_study_car.png"
+    # Beta stress chart (new)
+    conditional_beta: "beta_conditional_vix.png"
+
+# --- Logging ---
+logging:
+  level: "INFO"
+  format: "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
