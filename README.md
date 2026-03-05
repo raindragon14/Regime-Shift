@@ -1,113 +1,115 @@
-# Membongkar Mitos Emas Digital 🪙
-**Analisis Kuantitatif Regime Shift Bitcoin Selama Krisis Geopolitik 2023–2026**
+🌐 **Language / Bahasa**: [🇬🇧 English](README.md) | [🇮🇩 Bahasa Indonesia](README.id.md)
+
+# Debunking the Digital Gold Myth 🪙
+**Quantitative Analysis of Bitcoin Regime Shifts During the 2023–2026 Geopolitical Crisis**
 
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![Dash](https://img.shields.io/badge/dash-2.14+-teal.svg)
 ![Plotly](https://img.shields.io/badge/plotly-5.18+-purple.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-> **Proyek Kompetisi Data Analisis & Portofolio Quantitative Research**<br>
-> Sebuah investigasi empiris menggunakan *Event Study*, *Rolling Correlation*, dan *VIX-Conditional Beta* untuk menguji narasi *safe haven* Bitcoin.
+> **Data Analytics Competition & Quantitative Research Portfolio Project**<br>
+> An empirical investigation employing *Event Study*, *Rolling Correlation*, and *VIX-Conditional Beta* methodologies to test the Bitcoin *safe haven* narrative.
 
 ---
 
-## 📌 Daftar Isi
+## 📌 Table of Contents
 1. [Abstract](#abstract)
-2. [Mengapa Ini Penting?](#mengapa-ini-penting)
-3. [Hipotesis & Metodologi](#hipotesis--metodologi)
-4. [Temuan Utama](#temuan-utama)
+2. [Why This Matters](#why-this-matters)
+3. [Hypotheses & Methodology](#hypotheses--methodology)
+4. [Key Findings](#key-findings)
 5. [Quick Start (Dashboard)](#quick-start)
-6. [Struktur Repositori](#struktur-repositori)
+6. [Repository Structure](#repository-structure)
 
 ---
 
-## 📖 Abstrak Eksploratori
+## 📖 Exploratory Abstract
 
-Penelitian kuantitatif ini menginvestigasi **hipotesis pergeseran rezim** pada kelas aset kripto, secara spesifik menguji apakah Bitcoin (BTC) sedang mengalami transisi fundamental dari aset spekulatif berisiko tinggi (*risk-on proxy*) menjadi aset pelindung nilai makroekonomi (*safe haven*). Fokus waktu observasi difokuskan pada periode eskalasi geopolitik tingkat tinggi 2023–2026, yang mencakup guncangan eksternal seperti pecahnya konflik Israel-Hamas, serangan militer Iran-Israel, hingga pengetatan jalur maritim Selat Hormuz.
+This quantitative study investigates the **regime-shift hypothesis** in the cryptocurrency asset class, specifically testing whether Bitcoin (BTC) is undergoing a fundamental transition from a high-risk speculative instrument (*risk-on proxy*) to a macroeconomic store of value (*safe haven*). The observation period is concentrated on the high-intensity geopolitical escalation window of 2023–2026, encompassing exogenous shocks such as the outbreak of the Israel-Hamas conflict, the Iran-Israel military strikes, and the partial restriction of the Strait of Hormuz maritime corridor.
 
-Melalui penerapan tripartit *framework* kuantitatif standar industri, meliputi rancangan **Event Study (Model Pasar OLS)**, komputasi **Multi-Asset Rolling Correlation**, dan dekomposisi **VIX-Conditional Beta** kami menyimpulkan bahwa Bitcoin saat ini tidak terklasifikasi sebagai murni aset *risk-on* maupun *safe haven*. Data secara empiris mengungkap struktur **transisi bertahap yang intermiten**: terdeteksi lonjakan korelasi korektif terhadap instrumen emas (GLD) pada fase kepanikan pasar global, serta akumulasi *abnormal return* yang persisten positif pada *event* paling mutakhir, diiringi koefisien beta pasar yang belum tertundukkan sepenuhnya (*Beta > 1.0*). Narasi "Emas Digital" oleh karena itu bukanlah sebuah aksioma pasar yang mapan, melainkan suatu **hipotesis dinamis yang sedang divalidasi oleh institusi global di tengah guncangan geopolitik.**
+Through the application of a tripartite industry-standard quantitative framework — comprising an **Event Study (OLS Market Model)** design, **Multi-Asset Rolling Correlation** computation, and **VIX-Conditional Beta** decomposition — we conclude that Bitcoin currently defies clean classification as either a pure *risk-on* or *safe haven* asset. The data empirically reveal a structure of **incremental, intermittent transition**: corrective correlation spikes toward gold instruments (GLD) are detected during global market panic phases, and persistently positive abnormal return accumulation is observed around the most recent events, accompanied by market beta coefficients that have not yet fully subdued (*Beta > 1.0*). The "Digital Gold" narrative is therefore not an established market axiom, but rather a **dynamic hypothesis actively being validated by global institutions amid geopolitical shocks.**
 
 ---
 
-## 🏛️ Mengapa Kajian Ini Berdampak Signifikan?
+## 🏛️ Why This Research Matters
 
-### 1. Pergeseran Paradigma dan Kedalaman Pasar
-Dengan penetrasi kapitalisasi pasar yang menembus batas psikologis **$1.3 triliun** serta katalis strategis berupa persetujuan produk ETF *spot* oleh *market makers* raksasa (mis. BlackRock, Fidelity), Bitcoin telah melampaui fase "spekulasi ritel pinggiran". Aset ini kini tertanam secara substansial pada lapisan portofolio global, yang menuntut pendekatan evaluasi risiko (*risk profiling*) yang jauh lebih terkuantifikasi.
+### 1. Paradigm Shift and Market Depth
+With market capitalization breaching the psychological threshold of **$1.3 trillion** and the strategic catalyst of spot ETF product approvals by major market makers (e.g., BlackRock, Fidelity), Bitcoin has transcended the phase of "fringe retail speculation." The asset is now substantially embedded within global portfolio layers, demanding a far more rigorous and quantified approach to risk profiling.
 
-### 2. Anomali Kinerja Terhadap Guncangan Deflasioner
-Berdasarkan literatur keuangan klasik, pada saat terjadi lonjakan indeks ketakutan pasar (CBOE VIX) yang memicu likuidasi aset, Bitcoin dengan metrik volatilitas historis dan *market beta* yang dominan tinggi diasumsikan akan terdepresiasi tajam (*flight-to-liquidity*). Namun, observasi empiris periode 2023–2026 mengidentifikasi anomali struktural:
+### 2. Performance Anomalies Under Deflationary Shocks
+Classical finance literature predicts that when the CBOE VIX fear index spikes and triggers asset liquidation, Bitcoin — with its historically elevated volatility metrics and market beta — should depreciate sharply (*flight-to-liquidity*). However, empirical observations over the 2023–2026 period identify a structural anomaly:
 
-| Kejadian (*Event*) | Tanggal Kejadian | Asumsi Keuangan Tradisional | Realitas Kinerja (*Market Reality*) |
+| Event | Date | Traditional Finance Assumption | Observed Market Reality |
 |--------------------|-------------------|------------------------------|--------------------------------------|
-| Eskalasi Definitif Israel-Hamas | Okt 2023 | Depresiasi tajam (*risk-off selloff*) | Penurunan sesaat ➜ Reli struktural +12% / 30 Hari |
-| Serangan Udara Iran-Israel | Apr 2024 | Depresiasi tajam | Penurunan -7% ➜ Pemulihan total (*recovery*) dalam 48 Jam |
-| Restriksi Parsial Selat Hormuz | Feb 2026 | Depresiasi tajam | Koreksi ke $63K ➜ Terpantul kuat melampaui $72K |
-| Deklarasi Wafatnya Ayatollah Khamenei | Feb 2026 | Depresiasi tajam | Penurunan -4.5% ➜ Rebound masif menembus $68K |
+| Israel-Hamas Conflict Escalation | Oct 2023 | Sharp depreciation (*risk-off selloff*) | Momentary decline ➜ Structural rally +12% / 30 Days |
+| Iran-Israel Airstrike | Apr 2024 | Sharp depreciation | -7% decline ➜ Full recovery within 48 Hours |
+| Partial Strait of Hormuz Restriction | Feb 2026 | Sharp depreciation | Correction to $63K ➜ Strong rebound above $72K |
+| Declaration of Ayatollah Khamenei's Death | Feb 2026 | Sharp depreciation | -4.5% decline ➜ Massive rebound through $68K |
 
-### 3. Eksekusi Strategis (Implikasi Makro)
-Analisis ini mendudukkan polemik naratif menjadi proposisi empiris untuk tiga pilar utama pengambil keputusan:
-*   **Portfolio Managers & CIOs**: Menjustifikasi secara kuantitatif urgensi alokasi Bitcoin pada *hedging* portofolio *multi-asset*.
-*   **Quantitative Risk Analysts**: Mendesain ulang permodelan risiko dinamis untuk *instrument* dengan profil korelasi yang bergeser.
-*   **Policy Makers**: Menyediakan bukti primer terkait tesis pelarian-ke-kripto (*flight-to-crypto*) kala sentimen global berdarah.
+### 3. Strategic Implications (Macro Decision-Making)
+This analysis translates the narrative polemic into empirical propositions for three key decision-making constituencies:
+*   **Portfolio Managers & CIOs**: Quantitatively justifies the urgency of incorporating Bitcoin allocations into multi-asset hedging strategies.
+*   **Quantitative Risk Analysts**: Informs the redesign of dynamic risk models for instruments with shifting correlation profiles.
+*   **Policy Makers**: Provides primary evidence for the *flight-to-crypto* thesis during periods of acute global risk sentiment.
 
 ---
 
-## 🧪 Arsitektur Metodologi dan Spesifikasi Model
+## 🧪 Methodology Architecture and Model Specifications
 
-Proyek ini merumuskan tiga landasan pengujian statistik untuk secara holistik membedah anatomik dari kinerja instrumen:
+This project formulates three statistical testing pillars to holistically dissect the anatomy of instrument performance:
 
-### I. Metodologi Event Study (Pengukuran Abnormal Return)
-Studi kejadian (*Event Study*) diterapkan guna menceraikan (*isolate*) efek peristiwa geopolitik mematikan dari pergerakan pasar reguler. Model Pasar (*Market Model*) diformulasikan via Regresi OLS:
+### I. Event Study Methodology (Abnormal Return Measurement)
+The Event Study framework is applied to isolate the causal effect of high-impact geopolitical events from routine market movements. The Market Model is specified via OLS regression:
 
 $$AR_{i,t} = R_{i,t} - (\hat{\alpha}_i + \hat{\beta}_i \cdot R_{m,t})$$
 $$CAR_{i} = \sum_{t=T_1}^{T_2} AR_{i,t}$$
 
-*   **Jendela Estimasi (*Estimation Window*)**: $t \in [-125, -6]$ hari sebelum insiden, untuk mengkalibrasi profil return ekspektasian murni (bebas polusi dari imbas internal dari peristiwa). Indeks pengukur proksi pasar ($R_m$) dikonstitusikan oleh instrumen SPY ETF.
-*   **Jendela Kejadian (*Event Window*)**: $\pm5$ siklus perdagangan bursa pasca dan pra insiden. Parameter diuji kebermaknaannya secara statistik via *student t-test*.
+*   **Estimation Window**: $t \in [-125, -6]$ trading days prior to the event, used to calibrate the clean expected-return profile (insulated from any event-contamination effects). The market proxy ($R_m$) is the SPY ETF.
+*   **Event Window**: $\pm5$ trading sessions pre- and post-event. Statistical significance is evaluated via a two-tailed *Student's t-test*.
 
-### II. Dekomposisi Multi-Asset Rolling Correlation
-Bertujuan merekam fluktuasi transien (*crossover identitas*) dalam dinamika korelasi *time-series*:
+### II. Multi-Asset Rolling Correlation Decomposition
+Designed to capture transient *crossover dynamics* in time-series correlation structure:
 
 $$\rho_{window}(BTC, X)_t = \frac{\text{Covariance}(R_{BTC}, R_X)_{t-w:t}}{\sigma_{BTC} \cdot \sigma_X}$$
 
-*   $X_{1}$ (Proksi *Risk-On*): Invesco QQQ Trust (Agregat sektor Teknologi AS).
-*   $X_{2}$ (Proksi *Safe-Haven*): SPDR Gold Shares (GLD).
-*   Interval waktu observasi (*rolling window* $w$) ditetapkan selama 30-hari perdagangan guna meniadakan derau mikrostruktur pasar (*microstructure noise*). Sinyal pengkonfirmasi pergeseran rezim tervalidasi bila $\rho(BTC, GLD) > \rho(BTC, QQQ)$.
+*   $X_{1}$ (*Risk-On* Proxy): Invesco QQQ Trust (U.S. Technology Sector Aggregate).
+*   $X_{2}$ (*Safe-Haven* Proxy): SPDR Gold Shares (GLD).
+*   The rolling window ($w$) is set to 30 trading days to eliminate microstructure noise. A regime-shift confirmation signal is validated when $\rho(BTC, GLD) > \rho(BTC, QQQ)$.
 
-### III. Pengujian Stres VIX-Conditional Beta
-Pemecahan (*disaggregation*) kepekaan sistemik instrumen ($Beta$) yang disandarkan pada derajat volatilitas pasar luas yang tersirat (*implied volatility* via indeks VIX CBOE):
+### III. VIX-Conditional Beta Stress Testing
+Disaggregation of the instrument's systematic sensitivity ($Beta$) conditioned on the degree of broad-market implied volatility (CBOE VIX index):
 
 $$R_{BTC,t} = \alpha_k + \beta_k \cdot R_{SPY,t} + \epsilon_t \quad \Big| \quad \text{VIX}_{t-1} \in \text{Regime } k$$
-*Rangkaian Rezim (k)* didistribusikan secara tidak simetris (Asymmetric regimes): *Low* (0-15), *Normal* (15-25), *Elevated* (25-30), dan instansi ekstrem pembekuan pasar *Panic* ($>30$). Hipotesis yang menaungi pendirian bahwa jika Bitcoin beralih ke rupa aset anti guncangan, perwujudan trajektori numerik akan diwarnai oleh kejatuhan deterministik nilai beta-nya sejalan dengan masuknya VIX memasuki kuadran krisis (*Panic*).
+*Regime sequence (k)* is distributed asymmetrically: *Low* (0–15), *Normal* (15–25), *Elevated* (25–30), and the extreme market-freeze instance *Panic* ($>30$). The governing hypothesis holds that if Bitcoin is transitioning toward a shock-resistant asset, the numerical trajectory will be characterized by a deterministic decline in beta as the VIX enters the crisis quadrant (*Panic*).
 
 ---
 
-## 📊 Sintesis Penemuan Komprehensif
+## 📊 Comprehensive Findings Synthesis
 
-Melalui agregasi keluaran program matematis, diperoleh tabulasi matriks sintesis:
+Aggregating the mathematical model outputs yields the following synthesis matrix:
 
-| Pendekatan (*Sub-Model Analitik*) | Temuan Kuantitatif | Interpretasi Klinis (*Market Interpretation*) |
+| Analytical Sub-Model | Quantitative Finding | Market Interpretation |
 | :--- | :--- | :--- |
-| **Model H1** (*Korelasi Stres Ekstrem*) | Penggandaan korelasi struktural (Baseline 0.12 ➜ Fase Stres 0.24) | Hubungan fungsional terhadap instrumen deflasioner memuat tren parabolik yang solid, selagi batas konklusif threshold (>0.5) belum tercapai absolut. |
-| **Model H2** (*Akselerasi Rezim Korelatif*) | Diidentifikasi **69 fase crossover**. Rata-rata BTC-QQQ tercatat tinggi di 0.36, sedangkan BTC-GLD di anjungan bawah (0.13) | Sifat karakteristik transisi lebih bersifat spasial intermiten (fluktuasi oportunitis) bukan pergerakan struktural permanen. |
-| **Model H3** (*Sistemasi Market Model & AR*) | Perolehan $CAR_{Khamenei} = +7.46\%$, dan $CAR_{Israel-H} = +5.85\%$ | Injeksi kapital (anomali apresiasi) terbukti eksis menyusul penataan ulang alokasi sentimen pro-risiko dalam masa kalendering terbaru pertengahan abad ini. |
-| **Model VIX Beta** | $\beta_{\text{Low}} = 0.70$ bersanding kontras memuncak ke posisi $\beta_{\text{Norm}} = 1.30$ | Parameter Beta tersensor tidak anjlok pada rezim krisis ($\beta_{Panic} > 1.0$) meniadakan kepastian imunitas makro, aset tergolong aset super-volatil adaptif. |
+| **Model H1** (*Extreme Stress Correlation*) | Structural correlation doubling (Baseline 0.12 ➜ Stress Phase 0.24) | The functional relationship with deflationary instruments exhibits a solid parabolic trend, though the conclusive threshold (>0.5) has not yet been reached in absolute terms. |
+| **Model H2** (*Correlative Regime Acceleration*) | **69 crossover phases** identified. Mean BTC-QQQ correlation recorded high at 0.36, while BTC-GLD remains subdued at 0.13. | The transition is characteristically intermittent and opportunistic rather than a permanent structural shift. |
+| **Model H3** (*Market Model & AR Systematization*) | $CAR_{Khamenei} = +7.46\%$ and $CAR_{Israel\text{-}H} = +5.85\%$ | Capital injection anomalies (appreciation anomalies) are empirically confirmed following pro-risk sentiment reallocation during the most recent calendar period of the mid-century. |
+| **VIX Beta Model** | $\beta_{\text{Low}} = 0.70$ contrasted against a peak of $\beta_{\text{Norm}} = 1.30$ | The beta parameter does not collapse in the crisis regime ($\beta_{Panic} > 1.0$), precluding macro-immunity, classifying the asset as an adaptive super-volatile instrument. |
 
-> **Konklusi Final Data Ilmiah:** Ekosistem Bitcoin saat ini menduduki sebuah tumpuan **Transisi Bertahap Skala Menengah (*Mid-scale Incremental Transition*)**. Pergerakan deterministik belum melepaskan aset dari jangkar gravitasional *Growth/Risk-On Asset*, melainkan menyuntikkan embrio respons defensif. Eksperimentasi pasar terbesar perihal 'Emas Ciptaan' melahirkan penemuan bahwa karakteristik hibrida ($Safe-haven$ kompartmental) menguat siginifikan menyongsong akhir analisis studi tahun 2026.
+> **Scientific Data Final Conclusion:** The Bitcoin ecosystem currently occupies a **Mid-scale Incremental Transition** position. Deterministic momentum has not yet released the asset from the gravitational anchor of the *Growth/Risk-On Asset* classification, but has injected embryonic defensive-response characteristics. The market's greatest experiment regarding the 'Engineered Gold' finds that hybrid properties (*compartmental Safe-haven* characteristics) strengthen significantly as the 2026 study horizon approaches.
 
 ---
 
-## 🚀 Instalasi & Quick Start
+## 🚀 Installation & Quick Start
 
-Sistem arsitektur analisis dan presentasi ini dikemas ringkas untuk reproduksi lokal.
+The analysis and presentation system is packaged for straightforward local reproduction.
 
-1. **Unduh Repositori via VCS (Version Control):**
+1. **Clone the Repository via VCS:**
 ```bash
-git clone https://github.com/USERNAME/quant-regime-shift-btc.git
-cd quant-regime-shift-btc
+git clone https://github.com/raindragon14/Regime-Shift.git
+cd Regime-Shift
 ```
 
-2. **Inisiasi Lingkungan Terisolasi & Instalasi Dependensi (Python 3.9+):**
+2. **Create an Isolated Environment & Install Dependencies (Python 3.9+):**
 ```bash
 python -m venv venv
 # Windows: .\venv\Scripts\activate
@@ -115,33 +117,34 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-3. **Mengeksekusi Antarmuka Visual (Presentasi Dashboard):**
+3. **Launch the Visual Interface (Dashboard Presentation):**
 ```bash
 python dashboard.py
 ```
-*Navigasikan peramban (browser) anda menuju lokal *host* transmisi di: `http://127.0.0.1:8051`. (Tatap muka grafis dioperasikan oleh arsitektur Dash-React)*
+*Navigate your browser to the local host at: `http://127.0.0.1:8051`. (The graphical interface is powered by the Dash-React architecture.)*
 
 ---
 
-## 📂 Struktur Repositori Terpadu (*Repository Directory*)
+## 📂 Repository Structure
 
-Penyusunan basis kode (Codebase architecture) dipisahkan antara logika abstraksi (*backend calculation*) dan tata letak visibilitas panel GUI:
+The codebase architecture separates backend calculation logic from the GUI presentation layer:
 
 ```text
 .
-├── src/                      # Ekstensi Modul Infrastruktur Analitik
-│   ├── analysis.py           # Core computation logic (Rangkaian OLS Event Study & Beta matrix)
-│   ├── data_fetcher.py       # Interfacing API transmisi historis (yfinance + Retry Hooks System)
-│   ├── config.py             # Global Registry parameter inisialisasi runtime
-│   ├── visualization.py      # Pembentukan arsitektur visual Offline berbasis kanvas (Plotly Graph Ops)
-│   └── utils.py              # Operasional mikro utilitas matriks data
-├── config.yaml               # Penataan kalibrasi parameter, titik pivot events, & registri makro simpul aset
-├── dashboard.py              # Modul utama Front-End Rendering Presentasi GUI
-├── main.py                   # Konsol CLI independen (eksekutor pipeline model back-testing dry run)
-├── requirements.txt          # Library manifest dependensi ekosistem Python
-├── LICENSE                   # Dokumentasi Open-Source Lisensi MIT
-└── README.md                 # Manuskrip Komprehensif Laporan Riset Ilmiah (File ini)
+├── src/                      # Analytical infrastructure module extensions
+│   ├── analysis.py           # Core computation logic (OLS Event Study pipeline & Beta matrix)
+│   ├── data_fetcher.py       # Historical data API interface (yfinance + Retry Hooks System)
+│   ├── config.py             # Global runtime parameter registry
+│   ├── visualization.py      # Offline canvas-based visual architecture (Plotly Graph Ops)
+│   └── utils.py              # Data matrix micro-utility operations
+├── config.yaml               # Parameter calibration, event pivot points, & asset node macro registry
+├── dashboard.py              # Main Front-End GUI Presentation Rendering Module
+├── main.py                   # Independent CLI console (back-testing dry-run model pipeline executor)
+├── requirements.txt          # Python ecosystem dependency library manifest
+├── LICENSE                   # MIT Open-Source License documentation
+├── README.md                 # Primary documentation (English) — this file
+└── README.id.md              # Comprehensive Scientific Research Report Manuscript (Bahasa Indonesia)
 ```
 
 ---
-*Manuskrip dokumentasi dan basis kode ini dirancang dan direkayasa secara teliti untuk kebutuhan paparan eksibisi tingkat lanjut dan persaingan ajang **Portfolio Evaluasi Quantitative Research** kelas profesional.*
+*This documentation manuscript and codebase have been meticulously designed and engineered for advanced exhibition and professional-grade **Quantitative Research Portfolio Evaluation** competitions.*
